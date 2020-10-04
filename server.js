@@ -9,8 +9,6 @@ const saveData = require("./savedb");
 
 client.connect();
 
-const users = [process.env.CHANNEL];
-
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
