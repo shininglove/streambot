@@ -1,7 +1,10 @@
-const { getRandomInt } = require("./utilities");
-const { updateUserPoints } = require("./points");
+const express = require('express');
+const { getRandomInt } = require("../app/utilities");
+const { updateUserPoints } = require("../routes/points.js");
 
-const smegEvent = user => {
+const router = express.Router();
+
+const snugEvent = user => {
   const term = "snuggles";
   const randNum = getRandomInt(101);
   if (randNum === 100) {
@@ -15,4 +18,8 @@ const smegEvent = user => {
   return `@${user} got ${randNum}% ${term}.`;
 };
 
-module.exports = { smegEvent };
+router.get("/snug/:user", (req, res) => {
+    res.send(snugEvent(req.params.user));
+});
+
+module.exports = router;
