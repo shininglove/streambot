@@ -1,7 +1,3 @@
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
 const formatCount = (count, withAbbr = false, decimals = 2) => {
   const COUNT_ABBRS = ["", "K", "M", "G", "T", "P", "E", "Z", "Y"];
   const i = 0 === count ? count : Math.floor(Math.log(count) / Math.log(1000));
@@ -12,7 +8,7 @@ const formatCount = (count, withAbbr = false, decimals = 2) => {
   return result;
 };
 
-const dataFormatter = (data,keyName,valName) => {
+const dataFormatter = (data, keyName, valName) => {
   const newDataObj = {};
 
   for (let [_, dict] of Object.entries(data)) {
@@ -24,4 +20,4 @@ const dataFormatter = (data,keyName,valName) => {
   return newDataObj;
 };
 
-module.exports = {dataFormatter,getRandomInt};
+module.exports = { dataFormatter };
